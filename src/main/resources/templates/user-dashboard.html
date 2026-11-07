@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Espace Utilisateur</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f8f9fa; margin: 40px auto; max-width: 600px; padding: 20px; line-height: 1.6; }
+        .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-left: 5px solid #007bff; }
+        h2 { color: #007bff; margin-top: 0; }
+        a { display: inline-block; margin-right: 15px; color: #007bff; text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+        .btn-logout { padding: 8px 15px; border: none; border-radius: 4px; background: #dc3545; color: white; cursor: pointer; font-weight: bold; }
+        .btn-logout:hover { background: #bd2130; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h2>Espace Utilisateur</h2>
+    <p>Accessible aux rôles USER et ADMIN.</p>
+    <p>Bienvenue, <strong sec:authentication="name">Utilisateur</strong> !</p>
+    <div style="margin-top: 20px;">
+        <a th:href="@{/home}">Retour à l'accueil</a>
+        <form th:action="@{/logout}" method="post" style="display:inline;">
+            <button type="submit" class="btn-logout">Déconnexion</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
